@@ -71,7 +71,7 @@ const updateProduct = async (req, res) => {
 const deleteProduct = async (req, res) => {
     const id = req.params.id;
     if (id) {
-        pool.query('DELETE FROM Products WHERE id = $1', [id])
+        await pool.query('DELETE FROM Products WHERE id = $1', [id])
         res.json({
             message: `Producto #${id} eliminado correctamente`,
             code: true
